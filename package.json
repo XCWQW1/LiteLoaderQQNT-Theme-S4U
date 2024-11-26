@@ -1,0 +1,31 @@
+{
+  "name": "theme-template",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "devbuild": "electron-vite build --mode development",
+    "build": "electron-vite build --mode production",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "chokidar": "^4.0.1",
+    "electron": "^33.2.0",
+    "electron-vite": "^2.3.0",
+    "eslint": "^9.15.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.12.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "prettier": "3.4.1",
+    "sass-embedded": "^1.81.0",
+    "stylelint": "^16.10.0",
+    "stylelint-config-standard-scss": "^13.1.0",
+    "vite": "^5.4.11"
+  },
+  "lint-staged": {
+    "**/*.{js,mjs,cjs,ts,vue}": "npx eslint --fix",
+    "**/*.{css,scss}": "npx stylelint --fix",
+    "**/*": "prettier --write --ignore-unknown"
+  }
+}
