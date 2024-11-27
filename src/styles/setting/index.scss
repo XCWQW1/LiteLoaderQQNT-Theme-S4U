@@ -1,5 +1,11 @@
 // 限制样式范围，避免影响其他插件
 // 自行替换 className
 .tab-view.theme_template {
-  visibility: visible;
+  height: 100%;
+  border: 5px red dotted;
+
+  &::after {
+    content: '线框为设置页样式生效范围';
+    font-size: 2em;
+  }
 }

@@ -44,17 +44,19 @@ const chatCssWatcher = (chatWindow) => {
   const styleFolder = path.join(pluginPath, 'src', 'styles', 'chat')
   const styleEntry = path.join(styleFolder, 'index.scss')
 
-  const watcher = chokidar.watch(styleFolder, { persistent: true })
-  const fn = () => {
-    const css = sass.compile(styleEntry).css
-    chatWindow?.webContents.send('LiteLoader.theme_template.onChatCssUpdate', css)
+  const update = () => {
+    if (!chatWindow.isDestroyed()) {
+      const css = sass.compile(styleEntry).css
+      chatWindow.webContents.send('LiteLoader.theme_template.onChatCssUpdate', css)
+    }
   }
 
-  watcher.on('change', fn)
-  watcher.on('add', fn)
-  watcher.on('addDir', fn)
-  watcher.on('unlink', fn)
-  watcher.on('unlinkDir', fn)
+  const watcher = chokidar.watch(styleFolder, { persistent: true })
+  watcher.on('change', update)
+  watcher.on('add', update)
+  watcher.on('addDir', update)
+  watcher.on('unlink', update)
+  watcher.on('unlinkDir', update)
 }
 
 /**
@@ -75,15 +77,25 @@ const settingCssWatcher = (settingWindow) => {
   const styleFolder = path.join(pluginPath, 'src', 'styles', 'setting')
   const styleEntry = path.join(styleFolder, 'index.scss')
 
-  const watcher = chokidar.watch(styleFolder, { persistent: true })
-  const fn = () => {
-    const css = sass.compile(styleEntry).css
-    settingWindow?.webContents.send('LiteLoader.theme_template.onSettingCssUpdate', css)
+  const update = () => {
+    if (!settingWindow.isDestroyed()) {
+      const css = sass.compile(styleEntry).css
+      settingWindow.webContents.send('LiteLoader.theme_template.onSettingCssUpdate', css)
+    }
   }
 
-  watcher.on('change', fn)
-  watcher.on('add', fn)
-  watcher.on('addDir', fn)
-  watcher.on('unlink', fn)
-  watcher.on('unlinkDir', fn)
+  const watcher = chokidar.watch(styleFolder, { persistent: true })
+  watcher.on('change', update)
+  watcher.on('add', update)
+  watcher.on('addDir', update)
+  watcher.on('unlink', update)
+  watcher.on('unlinkDir', update)
+
+  settingWindow.on('closed', () => {
+    watcher.off('change', update)
+    watcher.off('add', update)
+    watcher.off('addDir', update)
+    watcher.off('unlink', update)
+    watcher.off('unlinkDir', update)
+  })
 }

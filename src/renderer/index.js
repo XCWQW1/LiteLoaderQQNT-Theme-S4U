@@ -38,24 +38,22 @@ if (isPageChat()) {
 
 // 打开设置界面时触发
 export const onSettingWindowCreated = (view) => {
-  if (isPageSetting()) {
-    if (!document.querySelector('style.theme_template')) {
-      const node = document.createElement('style')
-      node.className = 'theme_template'
-      node.textContent = settingCSS
-      view.appendChild(node)
-    }
+  if (!document.querySelector('style.theme_template')) {
+    const node = document.createElement('style')
+    node.className = 'theme_template'
+    node.textContent = settingCSS
+    view.appendChild(node)
+  }
 
-    if (import.meta.env.MODE === 'development') {
-      // eslint-disable-next-line no-undef
-      theme_template.onSettingCssUpdate((_event, css) => {
-        if (isPageSetting()) {
-          const style = document.querySelector('style.theme_template')
-          if (style) {
-            style.textContent = css
-          }
+  if (import.meta.env.MODE === 'development') {
+    // eslint-disable-next-line no-undef
+    theme_template.onSettingCssUpdate((_event, css) => {
+      if (isPageSetting()) {
+        const style = document.querySelector('style.theme_template')
+        if (style) {
+          style.textContent = css
         }
-      })
-    }
+      }
+    })
   }
 }
