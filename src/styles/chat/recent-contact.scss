@@ -1,0 +1,67 @@
+// 会话列表
+@mixin recent-contact() {
+  .recent-contact {
+    // 顶部
+    .contact-top-bar {
+    }
+
+    // 会话列表/群助手列表
+    .recent-contact-list,
+    .group-assistent-list {
+      // 会话条目
+      .recent-contact-item {
+        // 普通状态
+        .item__content {
+          // 头像
+          .item__avatar {
+            // 头像图片
+            .avatar {
+            }
+
+            // 通话时头像蒙版
+            .avatar--phone {
+            }
+          }
+
+          // 信息
+          .item__info {
+            // 主标题
+            .item__title {
+              // 文字内容
+              .main-info {
+              }
+
+              // 时间
+              .secondary-info {
+              }
+            }
+
+            // 副标题
+            .item__summary {
+              // 文字内容
+              .summary-main {
+              }
+
+              // bubble
+              .summary-bubble {
+              }
+            }
+          }
+        }
+
+        // 置顶状态
+        &.recent-contact-item--top {
+        }
+
+        // 选中状态
+        &.recent-contact-item--selected {
+        }
+
+        // 鼠标经过状态
+        &:hover,
+        &.recent-contact-item--top:hover {
+        }
+      }
+    }
+  }
+}

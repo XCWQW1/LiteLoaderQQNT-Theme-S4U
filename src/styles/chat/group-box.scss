@@ -1,0 +1,21 @@
+// 群公告、群成员列表
+@mixin group-box() {
+  .group-box__container {
+    .group-box {
+      // 群公告
+      .group-notice {
+      }
+
+      // 群成员
+      .group-member .group-member-list {
+        // 列表项
+        .group-user {
+        }
+      }
+    }
+
+    // 侧栏小按钮
+    .group-box__toggle {
+    }
+  }
+}

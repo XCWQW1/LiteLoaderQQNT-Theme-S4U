@@ -1,0 +1,25 @@
+// 聊天顶栏
+@mixin chat-header() {
+  .chat-header {
+    // 背景蒙版
+    .background-mask {
+    }
+
+    // 标题（群名/好友名）
+    .chat-header__title {
+      .chat-header__contact-name {
+      }
+    }
+
+    // 右侧功能列表
+    .panel-header__action {
+      // 功能按钮
+      .func-bar {
+      }
+
+      // 菜单按钮展开列表
+      .more-panel .side-panel {
+      }
+    }
+  }
+}

@@ -1,0 +1,141 @@
+// 聊天内容
+@mixin chat-msg() {
+  .chat-msg-area {
+    // 右上角气泡提示（未读数量）
+    .chat-msg-area__tip--top {
+      .chat-msg-area__tip--top-btn {
+      }
+    }
+
+    // 右下角气泡提示（新消息/有人@你）
+    .chat-msg-area__tip--bottom {
+      .chat-msg-area__tip--bottom-btn {
+      }
+    }
+
+    .ml-area {
+      // 消息列表
+      #ml-root {
+        @include ml-item;
+      }
+
+      // 虚拟滚动条
+      .v-scrollbar-track {
+      }
+    }
+  }
+}
+
+// 消息条目
+@mixin ml-item() {
+  .ml-item {
+    .message {
+      // 消息时间
+      .message__timestamp {
+        .babble {
+        }
+      }
+
+      // 提示消息（撤回、禁言、加群等）
+      .gray-tip-message {
+        .gray-tip-content {
+        }
+      }
+
+      // 消息本体
+      .message-container {
+        // 自己的消息
+        &.message-container--align-right {
+          // 此处有复杂的 grid 布局
+          // 横向长度和间距由 grid-template-columns 控制
+
+          // 头像
+          .avatar-span {
+            .avatar {
+            }
+          }
+
+          // 用户名
+          .user-name {
+            // 昵称
+            .text-ellipsis {
+            }
+
+            // 等级、头衔
+            .group-member-label {
+            }
+          }
+
+          // 消息气泡
+          .message-content__wrapper {
+            // 普通消息
+            .msg-content-container {
+            }
+
+            // 文件
+            .file-message--content {
+            }
+
+            // 聊天记录
+            .forward-msg {
+            }
+          }
+
+          // 消息状态（发送失败红点）
+          .content-status {
+          }
+
+          // 表情reaction
+          .message-tips {
+          }
+        }
+
+        // 他人的消息
+        &:not(.message-container--align-right) {
+          // 此处有复杂的 grid 布局
+          // 横向长度和间距由 grid-template-columns 控制
+
+          // 头像
+          .avatar-span {
+            .avatar {
+            }
+          }
+
+          // 用户名
+          .user-name {
+            // 昵称
+            .text-ellipsis {
+            }
+
+            // 等级、头衔
+            .group-member-label {
+            }
+          }
+
+          // 消息气泡
+          .message-content__wrapper {
+            // 普通消息
+            .msg-content-container {
+            }
+
+            // 文件
+            .file-message--content {
+            }
+
+            // 聊天记录
+            .forward-msg {
+            }
+          }
+
+          // 消息状态
+          .content-status {
+          }
+
+          // 表情reaction
+          .message-tips {
+          }
+        }
+      }
+    }
+  }
+}

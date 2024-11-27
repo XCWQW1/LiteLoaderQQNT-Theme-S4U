@@ -1,18 +1,50 @@
-@mixin demo() {
-  span {
-    background-clip: border-box;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 600;
-    font-size: 1.03em;
-    background-image: linear-gradient(90deg, #ffae00 0%, #ff2fba 100%, #fff);
+@use './test' as *;
+@use './sidebar' as *;
+@use './recent-contact' as *;
+@use './chat-header' as *;
+@use './chat-msg' as *;
+@use './chat-input' as *;
+@use './group-box' as *;
+@use './context-menu' as *;
+@use './contact' as *;
+
+@mixin main() {
+  #app {
+    // 测试用，删掉即可
+    @include test;
+
+    // 左边栏
+    @include sidebar;
+
+    // 会话列表
+    @include recent-contact;
+
+    // 聊天顶栏
+    @include chat-header;
+
+    // 聊天内容
+    @include chat-msg;
+
+    // 编辑器
+    @include chat-input;
+
+    // 群公告、群成员
+    @include group-box;
+
+    // 联系人页面
+    @include contact;
   }
+
+  // 右键菜单
+  @include context-menu;
 }
 
 @media (prefers-color-scheme: light) {
-  @include demo;
+  // 此处可引入日间配色
+  @include main;
 }
 
 @media (prefers-color-scheme: dark) {
-  @include demo;
+  // 此处可引入夜间配色
+  @include main;
 }

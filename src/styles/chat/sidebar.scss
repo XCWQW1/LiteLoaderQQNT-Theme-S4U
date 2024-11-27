@@ -1,0 +1,20 @@
+// 左边栏
+@mixin sidebar() {
+  .sidebar-nav {
+    // 头像
+    .sidebar__avatar {
+    }
+
+    // 中部
+    .sidebar__nav {
+      .nav-item {
+      }
+    }
+
+    // 底部
+    .sidebar__lower {
+      .func-menu__item {
+      }
+    }
+  }
+}

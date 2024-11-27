@@ -1,0 +1,47 @@
+// 输入框
+@mixin chat-input() {
+  .chat-input-area {
+    // 表情panel
+    .expression-panel {
+    }
+
+    // 工具列表
+    .chat-func-bar {
+      // 左侧（表情、截图等）
+      .func-bar:nth-child(1) {
+        .bar-icon {
+        }
+      }
+
+      // 右侧（聊天记录）
+      .func-bar:nth-child(2) {
+        .bar-icon {
+        }
+      }
+    }
+
+    // 文字输入区域
+    .msg-input {
+      .qq-editor {
+        // --qq-editor-placeholder 输入框默认文字
+
+        .ck-editor__main {
+          // 编辑器内容
+          .ck-content {
+            // 编辑富文本时会出现 msg-qqface/msg-img/msg-reply 等元素
+          }
+        }
+      }
+    }
+
+    // 操作按钮（发送、关闭）
+    .operation {
+      .send-btn-wrap {
+      }
+    }
+
+    // 转发操作菜单（逐条、合并转发等）
+    .forward-ops {
+    }
+  }
+}

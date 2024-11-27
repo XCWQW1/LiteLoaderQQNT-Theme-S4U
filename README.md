@@ -2,6 +2,8 @@
 
 - 这是个人版本的 [LiteLoaderQQNT](https://liteloaderqqnt.github.io/) 主题模板
 
+- 已提供基础 scss 结构
+
 - 技术栈：electron-vite + pnpm + js + scss，支持 scss 热更新
 
 - Linter：eslint + prettier + stylelint
@@ -40,7 +42,11 @@
 
    - `styles/chat/*.scss` 是聊天页样式，`styles/setting/*.scss` 是设置页样式
 
+   - `index.scss` 是 scss 入口
+
    - 样式热更新基于文件监听和 IPC 实现，变更 scss 入口路径需同时修改 main 中对应代码
+
+   - 样式较多时，由于 scss 编译时间增加，热更新会有短暂延迟
 
 8. 产物由 `electron-vite` 控制，默认三个文件夹对应三个产物，可按需修改
 
