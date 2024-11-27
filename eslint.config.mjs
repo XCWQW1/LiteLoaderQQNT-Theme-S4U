@@ -7,5 +7,8 @@ export default [
   { files: ['**/*.js'] },
   { languageOptions: { globals: { ...globals.browser, ...globals.node } } },
   pluginJs.configs.recommended,
+  {
+    ignores: ['./dist/*'],
+  },
   eslintConfigPrettier,
 ]

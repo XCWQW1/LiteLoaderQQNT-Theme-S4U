@@ -2,7 +2,7 @@
 
 - 这是个人版本的 [LiteLoaderQQNT](https://liteloaderqqnt.github.io/) 主题模板
 
-- 技术栈：electron vite + pnpm + js
+- 技术栈：electron-vite + pnpm + js + scss，支持 scss 热更新
 
 - Linter：eslint + prettier + stylelint
 
