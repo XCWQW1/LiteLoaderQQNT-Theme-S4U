@@ -98,4 +98,11 @@ const settingCssWatcher = (settingWindow) => {
     watcher.off('unlink', update)
     watcher.off('unlinkDir', update)
   })
+
+  // 设置窗口可能多次开启，主动更新样式
+  let cnt = 0
+  const id = setInterval(() => {
+    update()
+    ++cnt > 5 && clearInterval(id)
+  }, 1000)
 }
