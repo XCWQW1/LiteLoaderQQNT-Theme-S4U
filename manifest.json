@@ -17,8 +17,8 @@
   "platform": ["win32", "linux", "darwin"],
   "injects": {
     "renderer": "./dist/renderer/index.js",
-    "main": "./dist/main/index.js",
-    "preload": "./dist/preload/index.js"
+    "main": "./dist/main/index.cjs",
+    "preload": "./dist/preload/index.cjs"
   },
   "repository": {
     "repo": "festoney8/Theme-Template",

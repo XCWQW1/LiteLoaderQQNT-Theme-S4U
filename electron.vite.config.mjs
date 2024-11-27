@@ -24,6 +24,13 @@ export default defineConfig({
     },
   },
   renderer: defineViteConfig({
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler',
+        },
+      },
+    },
     build: {
       minify: true,
       outDir: resolve(__dirname, './dist', 'renderer'),
