@@ -24,7 +24,7 @@ exports.onBrowserWindowCreated = (window) => {
 }
 
 /**
- * devbuild 模式下，监听本地样式变化，通过 IPC 更新 Renderer 样式
+ * development 模式下，监听本地样式文件夹，通过 IPC 更新 Renderer 样式
  * @see https://vite.dev/guide/env-and-mode.html#modes
  */
 // 聊天页
@@ -49,6 +49,7 @@ let chatCssWatcher = () => {
   watcher.on('unlink', fn)
   watcher.on('unlinkDir', fn)
 }
+
 // 设置页
 let settingCssWatcher = () => {
   if (import.meta.env.MODE !== 'development') {
