@@ -28,7 +28,7 @@ if (isPageChat()) {
     document.documentElement.appendChild(node)
   }
 
-  // development 模式下，热更新样式
+  // development mode 热更新样式
   if (import.meta.env.MODE === 'development') {
     // eslint-disable-next-line no-undef
     theme_template.onChatCssUpdate((_event, css) => {
@@ -43,7 +43,6 @@ if (isPageChat()) {
 }
 
 // 打开设置界面时触发
-// view 为 Element 对象，修改将同步到插件设置界面
 export const onSettingWindowCreated = (view) => {
   if (!document.querySelector('style.theme_template')) {
     const node = document.createElement('style')
