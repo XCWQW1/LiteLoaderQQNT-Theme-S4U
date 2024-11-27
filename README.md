@@ -1,8 +1,10 @@
 # Theme-Template
 
-- 这是个人版本的 [LiteLoaderQQNT](https://liteloaderqqnt.github.io/) Theme Template
+- 这是个人版本的 [LiteLoaderQQNT](https://liteloaderqqnt.github.io/) 主题模板
 
-- 技术栈：Electron Vite + PNPM + JS
+- 技术栈：electron vite + pnpm + js
+
+- Linter：eslint + prettier + stylelint
 
 ## How To Use
 
@@ -28,18 +30,20 @@
 
 4. 替换 public 文件夹下的 icon 文件
 
+   - icon 可在 [Icônes](https://icones.js.org/) 获取
+
 5. 运行 `pnpm devbuild` 构建 dev 版本，产物在 dist 文件夹下
 
 6. 重启 QQ，查看设置页是否出现新插件、是否报错
 
 7. 修改 styles 文件夹下的 scss 文件，不出意外的话会实时生效，成功即可继续编写主题
 
-   - `styles/chat/` 是聊天页样式，`styles/setting/` 是设置页样式
+   - `styles/chat/*.scss` 是聊天页样式，`styles/setting/*.scss` 是设置页样式
 
    - 样式热更新基于文件监听和 IPC 实现，变更 scss 入口路径需同时修改 main 中对应代码
 
 8. 产物由 `electron-vite` 控制，默认三个文件夹对应三个产物，可按需修改
 
-   - 产物不含 css，css 会以 inline 形式包含在 `renderer/index.js` 内
+   - 产物不含样式文件，css 会以 inline 形式包含在 `renderer/index.js` 内
 
 9. 发布时，需使用 `pnpm build` 构建 prod 版本，prod 版本不含样式热更和文件监听
