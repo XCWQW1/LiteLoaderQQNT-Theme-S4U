@@ -1,7 +1,6 @@
 // 测试用，删掉即可
 @mixin test() {
   span {
-    background-clip: border-box;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 600;
