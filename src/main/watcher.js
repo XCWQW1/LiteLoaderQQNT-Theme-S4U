@@ -24,16 +24,12 @@ export const chatCssWatcher = (chatWindow) => {
   const styleFolder = path.join(pluginPath, 'src', 'styles', 'chat')
   const styleEntry = path.join(styleFolder, 'index.scss')
 
-  const update = _.debounce(
-    () => {
-      if (!chatWindow.isDestroyed()) {
-        const css = sass.compile(styleEntry).css
-        chatWindow.webContents.send('LiteLoader.theme_template.onChatCssUpdate', css)
-      }
-    },
-    1000,
-    { leading: true },
-  )
+  const update = _.throttle(() => {
+    if (!chatWindow.isDestroyed()) {
+      const css = sass.compile(styleEntry).css
+      chatWindow.webContents.send('LiteLoader.theme_template.onChatCssUpdate', css)
+    }
+  }, 1000)
 
   const watcher = chokidar.watch(styleFolder, { persistent: true })
   watcher.on('change', update)
@@ -62,16 +58,12 @@ export const settingCssWatcher = (settingWindow) => {
   const styleFolder = path.join(pluginPath, 'src', 'styles', 'setting')
   const styleEntry = path.join(styleFolder, 'index.scss')
 
-  const update = _.debounce(
-    () => {
-      if (!settingWindow.isDestroyed()) {
-        const css = sass.compile(styleEntry).css
-        settingWindow.webContents.send('LiteLoader.theme_template.onSettingCssUpdate', css)
-      }
-    },
-    1000,
-    { leading: true },
-  )
+  const update = _.throttle(() => {
+    if (!settingWindow.isDestroyed()) {
+      const css = sass.compile(styleEntry).css
+      settingWindow.webContents.send('LiteLoader.theme_template.onSettingCssUpdate', css)
+    }
+  }, 1000)
 
   const watcher = chokidar.watch(styleFolder, { persistent: true })
   watcher.on('change', update)
