@@ -21,7 +21,7 @@ jobs:
           npm install
           npm run build
           rm -rf ./node_modules
-          zip -r ./LiteLoaderQQNT-Theme-S4U.zip . -x ".*" --exclude=*.DS_Store* -n "s4u_template"
+          zip -r LiteLoaderQQNT-Theme-S4U.zip . -x "s4u_template/*"
 
       - name: '上传发行'
         uses: svenstaro/upload-release-action@v2
