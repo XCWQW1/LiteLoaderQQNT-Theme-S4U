@@ -18,6 +18,8 @@
 
 ## 注意事项
 
+- 由于我的技术不够，目前如果需要像素字体，需手动到[TakWolf/fusion-pixel-font](https://github.com/TakWolf/fusion-pixel-font)中下载并右键安装 `fusion-pixel-12px-monospaced-zh_hans.ttf`
+
 - **最好不要与其他 LiteLoader 主题同时使用**
 
 - 推荐配合 [hacker-frok/LiteLoaderQQNT-Plugin-Brevity-btn](https://github.com/hacker-frok/LiteLoaderQQNT-Plugin-Brevity-btn) 项目使用视觉效果更佳
