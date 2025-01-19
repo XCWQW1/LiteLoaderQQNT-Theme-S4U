@@ -1,6 +1,9 @@
 // 聊天内容
 @mixin chat-msg() {
   .chat-msg-area {
+    padding-bottom: 10px;
+    background-color: var(--s4u-bg) !important;
+
     // 右上角气泡提示（未读数量）
     .chat-msg-area__tip--top {
       .chat-msg-area__tip--top-btn {
@@ -33,13 +36,30 @@
       // 消息时间
       .message__timestamp {
         .babble {
+          font-size: 20px;
+          color: #ccc2b3 !important;
+          background-color: unset !important;
         }
       }
 
       // 提示消息（撤回、禁言、加群等）
       .gray-tip-message {
         .gray-tip-content {
+          font-size: 20px;
+          color: #ccc2b3 !important;
+          background-color: var(--s4u-textSoft) !important;
+          border-radius: 5px;
         }
+      }
+
+      .text-link,
+      .text-element--at,
+      .text-normal {
+        font-size: 20px;
+      }
+
+      .text-ellipsis {
+        color: var(--s4u-text);
       }
 
       // 消息本体
@@ -48,17 +68,28 @@
         &.message-container--align-right {
           // 此处有复杂的 grid 布局
           // 横向长度和间距由 grid-template-columns 控制
+          padding: 0 10px;
 
           // 头像
           .avatar-span {
+            .message-container__avatar {
+              width: 45px !important;
+              height: 45px !important;
+            }
+
             .avatar {
+              border-radius: 5px;
+              border: 2px solid var(--s4u-textSoft) !important;
             }
           }
 
           // 用户名
           .user-name {
+            padding: 0 10px 0 0;
+
             // 昵称
             .text-ellipsis {
+              color: var(--s4u-text) !important;
             }
 
             // 等级、头衔
@@ -68,16 +99,104 @@
 
           // 消息气泡
           .message-content__wrapper {
+            padding: 0 10px;
+
             // 普通消息
             .msg-content-container {
+              color: var(--s4u-text);
+              background-color: var(--s4u-bgSoft) !important;
+              border-radius: 5px 0 5px 5px;
             }
 
             // 文件
+            .video-element,
+            .normal-file,
             .file-message--content {
+              width: auto;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .msg-preview {
+                color: var(--s4u-link);
+                background-color: var(--s4u-bgSoft) !important;
+                border-radius: 5px 0 5px 5px;
+                width: auto !important;
+                height: auto !important;
+                max-width: unset !important;
+                max-height: unset !important;
+                min-width: 132px !important;
+                min-height: 34px !important;
+
+                .file-info-mask {
+                  p:not(.text-ellipsis) {
+                    display: none;
+                  }
+                }
+              }
+
+              .file-header {
+                padding: 0;
+                margin-bottom: 0;
+              }
+
+              .file-info-mask {
+                width: auto;
+                display: flex;
+                align-items: center;
+              }
+
+              .file-info-mask::before,
+              .file-header::before {
+                content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAIGNIUk0AAHomAACAhAAA+gAAAIDo AAB1MAAA6mAAADqYAAAXcJy6UTwAAAGPUExURQAAAEx4wwALtP//8ylgvzNnwCthvzlrwjhqwTlq wTdqwTJmwDVowTBkwDFlwHGPxzFkwCRHwDJqwC9kwDtswjpswjpswjpswjtswjpswThrwS5jwC5k wC1jwDhqwTpswTlswTlrwTVowTVowTpswjpswjttwi5jwDRowTttwjlrwjlqwjJmwDZpwTdpwTFm wDhqwTxswjBlwDhqwTZowTJmwTZpwTNnwTJmwTFlwDFlwC5kwDJmwDJmwDRowTJmwDJmwDZpwTVo wS9kwDBlwDJmwDFlwDFlwDJmwDBlwDVnwDNmwDJmwDJmwDJmwDJmwDFlwDFlwDFlwC5jwC5jwDFl wDFlwC9kwDFlwDFlwC1jwDBkwC9kwC9kwDBkwDBkwC9kwDBkwC9kwC9kwC9kwC9kwC9kwC9kwC9k wC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9k wC9kwC9kwC9kwC9kwC9kwDJmwDFlwC9kwP///8zE1hgAAACBdFJOUwAAAAAAAAAAAAAAAAAAAAAA AAAAYfr3/HWBlzQ1NIuQBJJ3c6mlHCl0pxmCgH+ChYMyRyluo2KQbNF1RF6sQLZMBzeqeWDJDM8o CDnQSImiB2y2HQRZwy+3dw+RjSiClku/WRandC4Jk3edXhFHB2yBg3ACAUiRkIs0P7VMdfzrLTOG q2gAAAABYktHRIRi0FpxAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH6QETAA0HqZnaxQAA AL5JREFUCNdjYAABRiYRUTFxCWZGEIeFhVVSSlpGVk6eDchjZ1dQVFJWUVVT19BkYODg1NLW0dXT 1zcwNGpkYOAyNjE1M7fg5rG0sm5iYOC2sbWzd+BxdHJ2cXVj4OVzd/Dw5Pfy9vH18w9gEBAMDAoO EQoNC4+IjOJjEI6OiRUWjotPSExKFhZmSElNE07PyEzNys4B8hiac4WF8/ILCouKQTywbElpWb4w mMcgXF5RWVVdA+EAucK1dfUNMB4AIEYmDHlo9M8AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjUtMDEt MTlUMDA6MTM6MDcrMDA6MDAlNI66AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI1LTAxLTE5VDAwOjEz OjA3KzAwOjAwVGk2BgAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyNS0wMS0xOVQwMDoxMzowNysw MDowMAN8F9kAAAAASUVORK5CYII=');
+                background-repeat: no-repeat;
+                background-position: left center;
+                font-size: 12px;
+                margin-top: 2px;
+              }
+
+              .file-name::before {
+                color: var(--s4u-link);
+                content: '[';
+                margin-left: 4px;
+                margin-right: 2px;
+              }
+
+              .file-name::after {
+                color: var(--s4u-link);
+                content: ']';
+                margin-left: 2px;
+              }
+
+              .image,
+              .file-info,
+              .file-icon {
+                display: none;
+              }
+
+              span {
+                color: var(--s4u-link);
+                background-color: var(--s4u-bgSoft) !important;
+              }
+
+              color: var(--s4u-link);
+              background-color: var(--s4u-bgSoft) !important;
+              border-radius: 5px 0 5px 5px;
             }
 
             // 聊天记录
             .forward-msg {
+              div {
+                color: var(--s4u-text) !important;
+              }
+
+              color: var(--s4u-text) !important;
+              background-color: var(--s4u-bgSoft) !important;
+              border-radius: 5px;
+
+              .count {
+                border-top: 1px solid;
+              }
             }
           }
 
@@ -87,6 +206,7 @@
 
           // 表情reaction
           .message-tips {
+            padding: 0 10px;
           }
         }
 
@@ -94,17 +214,28 @@
         &:not(.message-container--align-right) {
           // 此处有复杂的 grid 布局
           // 横向长度和间距由 grid-template-columns 控制
+          padding: 0 10px;
 
           // 头像
           .avatar-span {
+            .message-container__avatar {
+              width: 45px !important;
+              height: 45px !important;
+            }
+
             .avatar {
+              border-radius: 5px;
+              border: 2px solid var(--s4u-textSoft) !important;
             }
           }
 
           // 用户名
           .user-name {
+            padding: 0 0 0 10px;
+
             // 昵称
             .text-ellipsis {
+              color: var(--s4u-text) !important;
             }
 
             // 等级、头衔
@@ -114,16 +245,78 @@
 
           // 消息气泡
           .message-content__wrapper {
+            padding: 0 10px;
+
             // 普通消息
             .msg-content-container {
+              color: var(--s4u-text);
+              background-color: var(--s4u-bgSoft) !important;
+              border-radius: 0 5px 5px;
             }
 
             // 文件
+            .video-element,
+            .normal-file,
             .file-message--content {
+              width: auto;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .file-header {
+                padding: 0;
+                margin-bottom: 0;
+              }
+
+              .file-header::before {
+                content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAMAAAAolt3jAAAAIGNIUk0AAHomAACAhAAA+gAAAIDo AAB1MAAA6mAAADqYAAAXcJy6UTwAAAGPUExURQAAAEx4wwALtP//8ylgvzNnwCthvzlrwjhqwTlq wTdqwTJmwDVowTBkwDFlwHGPxzFkwCRHwDJqwC9kwDtswjpswjpswjpswjtswjpswThrwS5jwC5k wC1jwDhqwTpswTlswTlrwTVowTVowTpswjpswjttwi5jwDRowTttwjlrwjlqwjJmwDZpwTdpwTFm wDhqwTxswjBlwDhqwTZowTJmwTZpwTNnwTJmwTFlwDFlwC5kwDJmwDJmwDRowTJmwDJmwDZpwTVo wS9kwDBlwDJmwDFlwDFlwDJmwDBlwDVnwDNmwDJmwDJmwDJmwDJmwDFlwDFlwDFlwC5jwC5jwDFl wDFlwC9kwDFlwDFlwC1jwDBkwC9kwC9kwDBkwDBkwC9kwDBkwC9kwC9kwC9kwC9kwC9kwC9kwC9k wC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9kwC9k wC9kwC9kwC9kwC9kwC9kwDJmwDFlwC9kwP///8zE1hgAAACBdFJOUwAAAAAAAAAAAAAAAAAAAAAA AAAAYfr3/HWBlzQ1NIuQBJJ3c6mlHCl0pxmCgH+ChYMyRyluo2KQbNF1RF6sQLZMBzeqeWDJDM8o CDnQSImiB2y2HQRZwy+3dw+RjSiClku/WRandC4Jk3edXhFHB2yBg3ACAUiRkIs0P7VMdfzrLTOG q2gAAAABYktHRIRi0FpxAAAACXBIWXMAAC4jAAAuIwF4pT92AAAAB3RJTUUH6QETAA0HqZnaxQAA AL5JREFUCNdjYAABRiYRUTFxCWZGEIeFhVVSSlpGVk6eDchjZ1dQVFJWUVVT19BkYODg1NLW0dXT 1zcwNGpkYOAyNjE1M7fg5rG0sm5iYOC2sbWzd+BxdHJ2cXVj4OVzd/Dw5Pfy9vH18w9gEBAMDAoO EQoNC4+IjOJjEI6OiRUWjotPSExKFhZmSElNE07PyEzNys4B8hiac4WF8/ILCouKQTywbElpWb4w mMcgXF5RWVVdA+EAucK1dfUNMB4AIEYmDHlo9M8AAAAldEVYdGRhdGU6Y3JlYXRlADIwMjUtMDEt MTlUMDA6MTM6MDcrMDA6MDAlNI66AAAAJXRFWHRkYXRlOm1vZGlmeQAyMDI1LTAxLTE5VDAwOjEz OjA3KzAwOjAwVGk2BgAAACh0RVh0ZGF0ZTp0aW1lc3RhbXAAMjAyNS0wMS0xOVQwMDoxMzowNysw MDowMAN8F9kAAAAASUVORK5CYII=');
+                background-repeat: no-repeat;
+                background-position: left center;
+                font-size: 12px;
+                margin-top: 2px;
+              }
+
+              .file-name::before {
+                color: var(--s4u-link);
+                content: '[';
+                margin-left: 4px;
+                margin-right: 2px;
+              }
+
+              .file-name::after {
+                color: var(--s4u-link);
+                content: ']';
+                margin-left: 2px;
+              }
+
+              .file-info,
+              .file-icon {
+                display: none;
+              }
+
+              span {
+                color: var(--s4u-link);
+                background-color: var(--s4u-bgSoft) !important;
+              }
+
+              color: var(--s4u-link);
+              background-color: var(--s4u-bgSoft) !important;
+              border-radius: 5px 0 5px 5px;
             }
 
             // 聊天记录
             .forward-msg {
+              div {
+                color: var(--s4u-text) !important;
+              }
+
+              color: var(--s4u-text) !important;
+              background-color: var(--s4u-bgSoft) !important;
+              border-radius: 5px;
+
+              .count {
+                border-top: 1px solid;
+              }
             }
           }
 
@@ -133,6 +326,7 @@
 
           // 表情reaction
           .message-tips {
+            padding: 0 10px;
           }
         }
       }
