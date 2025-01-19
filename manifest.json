@@ -16,9 +16,9 @@
   ],
   "platform": ["win32", "linux", "darwin"],
   "injects": {
-    "renderer": "./dist/renderer/index.js",
-    "main": "./dist/main/index.cjs",
-    "preload": "./dist/preload/index.cjs"
+    "main": "./main/index.js",
+    "preload": "./preload/index.js",
+    "renderer": "./renderer/index.js"
   },
   "repository": {
     "repo": "XCWQW1/LiteLoaderQQNT-Theme-S4U",
