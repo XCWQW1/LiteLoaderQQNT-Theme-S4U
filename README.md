@@ -12,8 +12,8 @@
 ## 使用方法
 
 1. 安装 **[LiteLoaderQQNT](https://liteloaderqqnt.github.io/)**
-1. 直接 克隆\下载 本项目
-1. 将下载的插件复制到 LiteLoaderQQNT 的 `plugins` 目录下
+1. 从 release 中下载 `LiteLoaderQQNT-Theme-S4U.zip `
+1. 将下载的压缩包解压到 LiteLoaderQQNT 的 `plugins` 目录下
 1. 重启 QQ
 
 ## 注意事项
