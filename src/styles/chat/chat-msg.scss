@@ -102,6 +102,7 @@
             padding: 0 10px;
 
             // 普通消息
+            .reply-element,
             .msg-content-container {
               color: var(--s4u-text);
               background-color: var(--s4u-bgSoft) !important;
@@ -248,6 +249,7 @@
             padding: 0 10px;
 
             // 普通消息
+            .reply-element,
             .msg-content-container {
               color: var(--s4u-text);
               background-color: var(--s4u-bgSoft) !important;
