@@ -1,5 +1,4 @@
 {
-  "$schema": "./manifest_schema.json",
   "manifest_version": 4,
   "type": "theme",
   "name": "S4U 主题",
@@ -16,12 +15,16 @@
   ],
   "platform": ["win32", "linux", "darwin"],
   "injects": {
-    "main": "./main/index.js",
-    "preload": "./preload/index.js",
-    "renderer": "./renderer/index.js"
+    "renderer": "./dist/renderer/index.js",
+    "main": "./dist/main/index.cjs",
+    "preload": "./dist/preload/index.cjs"
   },
   "repository": {
     "repo": "XCWQW1/LiteLoaderQQNT-Theme-S4U",
-    "branch": "main"
+    "branch": "main",
+    "release": {
+      "tag": "latest",
+      "file": "LiteLoaderQQNT-Theme-S4U.zip"
+    }
   }
 }

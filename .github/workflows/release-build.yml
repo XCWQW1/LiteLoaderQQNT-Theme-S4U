@@ -1,0 +1,33 @@
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+name: release-build
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: '签出仓库'
+        uses: actions/checkout@v4
+
+      - name: '初始化 node'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: '构建'
+        run: |
+          npm install
+          npm run build
+          rm -rf ./node_modules
+          zip -r ./LiteLoaderQQNT-Theme-S4U.zip ./*
+
+      - name: '上传发行'
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+          file: LiteLoaderQQNT-Theme-S4U.zip
+          asset_name: LiteLoaderQQNT-Theme-S4U.zip
+          prerelease: true
