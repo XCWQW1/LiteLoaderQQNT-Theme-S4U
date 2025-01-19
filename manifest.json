@@ -19,5 +19,9 @@
     "renderer": "./dist/renderer/index.js",
     "main": "./dist/main/index.cjs",
     "preload": "./dist/preload/index.cjs"
+  },
+  "repository": {
+    "repo": "XCWQW1/LiteLoaderQQNT-Theme-S4U",
+    "branch": "main"
   }
 }
