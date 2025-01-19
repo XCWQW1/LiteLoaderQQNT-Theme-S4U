@@ -3,19 +3,59 @@
   .recent-contact {
     // 顶部
     .contact-top-bar {
+      background-color: var(--s4u-bg) !important;
+      border-left: 2px solid #434240;
+      border-right: 2px solid var(--s4u-textSoft);
+    }
+
+    .main-search {
+      .search {
+        .search-input {
+          input::placeholder {
+            color: var(--s4u-text) !important;
+          }
+
+          input.q-input__inner {
+            // 搜索框颜色
+            background-color: var(--s4u-textSoft) !important;
+          }
+        }
+      }
+    }
+
+    .contact-adder-btn {
+      // 加号按钮
+      background-color: var(--s4u-textSoft) !important;
+
+      .q-svg-icon {
+        color: var(--s4u-text) !important;
+      }
     }
 
     // 会话列表/群助手列表
     .recent-contact-list,
     .group-assistent-list {
+      border-left: 2px solid #434240;
+      border-right: 2px solid var(--s4u-textSoft);
+      background-color: var(--s4u-bg);
+
+      .phone_bg {
+        border-radius: 5px;
+      }
+
       // 会话条目
       .recent-contact-item {
+        border-bottom: 2px solid var(--s4u-textSoft);
+        height: 64px;
+
         // 普通状态
         .item__content {
           // 头像
           .item__avatar {
             // 头像图片
             .avatar {
+              border-radius: 5px;
+              border: 2px solid var(--s4u-textSoft) !important;
             }
 
             // 通话时头像蒙版
@@ -29,6 +69,7 @@
             .item__title {
               // 文字内容
               .main-info {
+                color: var(--s4u-text);
               }
 
               // 时间
@@ -40,6 +81,7 @@
             .item__summary {
               // 文字内容
               .summary-main {
+                color: var(--s4u-textSoft);
               }
 
               // bubble
@@ -49,12 +91,34 @@
           }
         }
 
+        .summary-bubble {
+          // 普通气泡
+          sub.q-badge__grey {
+            border: 2px solid var(--s4u-textSoft);
+            color: #fdfdfd !important;
+            background-color: var(--s4u-textSoft) !important;
+            padding: 2px !important;
+            font-size: 12px;
+            border-radius: 3px;
+          }
+
+          // 红色气泡
+          sub.q-badge__red {
+            border: 2px solid #7b3c2c;
+            background-color: #b1614a;
+            padding: 2px !important;
+            font-size: 12px;
+            border-radius: 3px;
+          }
+        }
+
         // 置顶状态
         &.recent-contact-item--top {
         }
 
         // 选中状态
         &.recent-contact-item--selected {
+          background-color: #c5b9a6 !important;
         }
 
         // 鼠标经过状态

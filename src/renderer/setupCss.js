@@ -10,9 +10,9 @@ const isPageSetting = () => location.hash.includes('#/setting/settings')
 export const setupChatPageCss = () => {
   if (isPageChat()) {
     // 样式注入到 html 节点下方
-    if (!document.querySelector('html > style.theme_template')) {
+    if (!document.querySelector('html > style.s4u_template')) {
       const node = document.createElement('style')
-      node.className = 'theme_template'
+      node.className = 's4u_template'
       node.textContent = chatCSS
       document.documentElement.appendChild(node)
     }
@@ -20,9 +20,9 @@ export const setupChatPageCss = () => {
     // development mode 热更新样式
     if (import.meta.env.MODE === 'development') {
       // eslint-disable-next-line no-undef
-      theme_template.onChatCssUpdate((_event, css) => {
+      s4u_template.onChatCssUpdate((_event, css) => {
         if (isPageChat()) {
-          const style = document.querySelector('html > style.theme_template')
+          const style = document.querySelector('html > style.s4u_template')
           if (style) {
             style.textContent = css
           }
@@ -38,18 +38,18 @@ export const setupChatPageCss = () => {
  * @param {HTMLElement} view 插件菜单节点
  */
 export const setupSettingPageCss = (view) => {
-  if (!document.querySelector('style.theme_template')) {
+  if (!document.querySelector('style.s4u_template')) {
     const node = document.createElement('style')
-    node.className = 'theme_template'
+    node.className = 's4u_template'
     node.textContent = settingCSS
     view.appendChild(node)
   }
 
   if (import.meta.env.MODE === 'development') {
     // eslint-disable-next-line no-undef
-    theme_template.onSettingCssUpdate((_event, css) => {
+    s4u_template.onSettingCssUpdate((_event, css) => {
       if (isPageSetting()) {
-        const style = document.querySelector('style.theme_template')
+        const style = document.querySelector('style.s4u_template')
         if (style) {
           style.textContent = css
         }

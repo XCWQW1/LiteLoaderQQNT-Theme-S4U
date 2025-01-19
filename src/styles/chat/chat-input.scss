@@ -1,6 +1,12 @@
 // 输入框
 @mixin chat-input() {
   .chat-input-area {
+    background-color: var(--s4u-bg) !important;
+    box-shadow:
+      0 -2px 0 0 var(--s4u-textSoft),
+      0 -6px 0 0 white,
+      0 -8px 0 0 var(--s4u-textSoft);
+
     // 表情panel
     .expression-panel {
     }
@@ -23,10 +29,21 @@
     // 文字输入区域
     .msg-input {
       .qq-editor {
-        // --qq-editor-placeholder 输入框默认文字
-
         .ck-editor__main {
+          --qq-editor-placeholder: '敲击字母键输入回复内容';
+
           // 编辑器内容
+          caret-color: black;
+          color: var(--s4u-text);
+
+          p {
+            font-size: 20px;
+          }
+
+          .editor-el__at {
+            font-size: 20px !important;
+          }
+
           .ck-content {
             // 编辑富文本时会出现 msg-qqface/msg-img/msg-reply 等元素
           }
@@ -42,6 +59,12 @@
 
     // 转发操作菜单（逐条、合并转发等）
     .forward-ops {
+      color: var(--s4u-text) !important;
+      background-color: var(--s4u-bg) !important;
+
+      .q-button {
+        background-color: var(--s4u-bgSoft) !important;
+      }
     }
   }
 }

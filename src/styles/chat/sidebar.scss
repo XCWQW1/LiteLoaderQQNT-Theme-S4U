@@ -1,6 +1,8 @@
 // 左边栏
 @mixin sidebar() {
   .sidebar-nav {
+    background-color: var(--s4u-bg) !important;
+
     // 头像
     .sidebar__avatar {
     }

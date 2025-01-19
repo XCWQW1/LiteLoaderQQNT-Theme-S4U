@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-undef
-const pluginPath = LiteLoader.plugins['theme_template'].path.plugin // 主题代码路径
+const pluginPath = LiteLoader.plugins['s4u_template'].path.plugin // 主题代码路径
 
 /**
  * development 模式下，监听本地样式文件夹，通过 IPC 更新 Renderer 样式
@@ -27,7 +27,7 @@ export const chatCssWatcher = (chatWindow) => {
   const update = _.throttle(() => {
     if (!chatWindow.isDestroyed()) {
       const css = sass.compile(styleEntry).css
-      chatWindow.webContents.send('LiteLoader.theme_template.onChatCssUpdate', css)
+      chatWindow.webContents.send('LiteLoader.s4u_template.onChatCssUpdate', css)
     }
   }, 1000)
 
@@ -61,7 +61,7 @@ export const settingCssWatcher = (settingWindow) => {
   const update = _.throttle(() => {
     if (!settingWindow.isDestroyed()) {
       const css = sass.compile(styleEntry).css
-      settingWindow.webContents.send('LiteLoader.theme_template.onSettingCssUpdate', css)
+      settingWindow.webContents.send('LiteLoader.s4u_template.onSettingCssUpdate', css)
     }
   }, 1000)
 

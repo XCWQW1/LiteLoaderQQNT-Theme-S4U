@@ -1,12 +1,82 @@
 // 联系人页面
 @mixin contact() {
+  .contact {
+    span {
+      color: var(--s4u-text) !important;
+    }
+  }
+
+  color: var(--s4u-text) !important;
+
+  .radio-tab__item--background {
+    background-color: var(--s4u-bg) !important;
+  }
+
+  .q-select-button {
+    input,
+    div {
+      color: var(--s4u-text) !important;
+      background-color: var(--s4u-bg) !important;
+    }
+  }
+
+  .q-button {
+    span {
+      color: var(--s4u-text) !important;
+    }
+
+    border: unset !important;
+    background-color: var(--s4u-bgSoft) !important;
+  }
+
+  .profile {
+    input,
+    div {
+      color: var(--s4u-text) !important;
+      background-color: var(--s4u-bg) !important;
+    }
+
+    .like-button-wrapper {
+      background-color: unset !important;
+    }
+  }
+
+  .viewport-list__inner,
+  .sys-notify__container,
+  .profile,
+  .q-collapse-item__header,
+  .tab-header,
+  .contact {
+    color: var(--s4u-text) !important;
+    background-color: var(--s4u-bg) !important;
+
+    .list-item {
+      .avatar {
+        border-radius: 5px;
+      }
+
+      .list-item__avatar {
+        border-radius: 5px;
+        border: 2px solid var(--s4u-textSoft) !important;
+      }
+
+      background-color: var(--s4u-bgSoft) !important;
+    }
+  }
+
+  .radio-tab {
+    background-color: var(--s4u-bgSoft) !important;
+  }
+
   .contact-layout {
     // 左列
     .contact-layout__left-area {
+      border-left: 2px solid #434240;
     }
 
     // 右列
     .contact-layout__right-area {
+      border-left: 1px solid #434240;
     }
   }
 }

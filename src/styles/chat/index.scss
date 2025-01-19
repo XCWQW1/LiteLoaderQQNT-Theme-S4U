@@ -1,4 +1,3 @@
-@use './test' as *;
 @use './sidebar' as *;
 @use './recent-contact' as *;
 @use './chat-header' as *;
@@ -8,11 +7,28 @@
 @use './context-menu' as *;
 @use './contact' as *;
 
-@mixin main() {
-  #app {
-    // 测试用，删掉即可
-    @include test;
+:root {
+  --s4u-bg: #f6f3ec;
+  --s4u-bgSoft: #e8e1d8;
+  --s4u-text: #4f4e48;
+  --s4u-textSoft: #a69884;
+  --s4u-link: #3266c0;
+}
 
+@font-face {
+  font-family: fusionPixel;
+  src: var(--s4u-font-fusion-pixel);
+}
+
+@mixin main() {
+  body {
+    font-family: 'Fusion Pixel 12px Monospaced zh_hans Regular', sans-serif;
+
+    // font-family: 'fusionPixel', sans-serif;
+    cursor: var(--s4u-cursor), auto;
+  }
+
+  #app {
     // 左边栏
     @include sidebar;
 
@@ -33,6 +49,16 @@
 
     // 联系人页面
     @include contact;
+
+    .qq-logo,
+    .q-svg-icon {
+      color: var(--s4u-textSoft) !important;
+    }
+
+    // 壁纸
+    .ad-wrapper {
+      background-color: var(--s4u-bg);
+    }
   }
 
   // 右键菜单

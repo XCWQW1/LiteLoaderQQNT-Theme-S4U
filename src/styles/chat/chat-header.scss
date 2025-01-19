@@ -1,6 +1,8 @@
 // 聊天顶栏
 @mixin chat-header() {
   .chat-header {
+    background-color: var(--s4u-text);
+
     // 背景蒙版
     .background-mask {
     }
