@@ -5,8 +5,7 @@
 > [!NOTE]
 > 该插件仅在 Windows 环境下测试开发，未对其他平台进行测试，不保证可用性
 
-> [!CAUTION]
-> **请不要在 QQ 官方群聊和任何影响力较大的简中互联网平台（包括但不限于: 哔哩哔哩，微博，知乎，抖音等）发布和讨论*任何*与本项目存在相关性的信息**
+> [!CAUTION] > **请不要在 QQ 官方群聊和任何影响力较大的简中互联网平台（包括但不限于: 哔哩哔哩，微博，知乎，抖音等）发布和讨论*任何*与本项目存在相关性的信息**
 
 ![](image/show.png)
 
@@ -19,7 +18,7 @@
 
 ## 注意事项
 
-- 由于我的技术不够，目前如果需要像素字体，需手动到[TakWolf/fusion-pixel-font](https://github.com/TakWolf/fusion-pixel-font)中下载并右键安装 `fusion-pixel-12px-monospaced-zh_hans.ttf`
+- 由于我的技术不够，目前如果需要像素字体，需手动到[TakWolf/fusion-pixel-font](https://github.com/TakWolf/fusion-pixel-font)中下载 `fusion-pixel-font-12px-monospaced-ttf-.*.zip` 解压后右键安装其中的 `fusion-pixel-12px-monospaced-zh_hans.ttf`
 
 - **最好不要与其他 LiteLoader 主题同时使用**
 
